@@ -28,6 +28,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 20px 0;
+            overflow-x: hidden;
             background-image: 
                 radial-gradient(circle at 0% 0%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
                 radial-gradient(circle at 100% 100%, rgba(30, 58, 138, 0.05) 0%, transparent 40%);
@@ -45,24 +47,32 @@
             box-shadow: 0 40px 100px rgba(30, 58, 138, 0.08);
             border: 1px solid rgba(212, 175, 55, 0.2);
             position: relative;
-            overflow: hidden;
+            /* Remove overflow hidden to prevent clipping of status messages/internal content */
         }
 
         @media (max-width: 850px) {
+            body {
+                align-items: flex-start; /* Prevent top/bottom cutting */
+                padding: 20px 0;
+            }
+
             .container {
                 grid-template-columns: 1fr;
                 padding: 30px;
                 width: 95%;
                 gap: 24px;
                 border-radius: 24px;
+                margin-top: 20px;
+                margin-bottom: 20px;
             }
 
             h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
 
             .brand-section {
                 text-align: center;
+                order: 2; /* Move brand section below form on mobile if needed, or keep order */
             }
 
             .logo-text {
@@ -76,25 +86,36 @@
 
             .form-section {
                 padding: 30px 20px;
+                order: 1; /* Form first for better UX */
             }
 
             .onboarding-image {
-                margin-top: 20px;
+                margin-top: 24px;
+                max-width: 100%;
+                height: auto;
             }
         }
 
         @media (max-width: 480px) {
             .container {
                 padding: 24px 16px;
-                margin: 20px 0;
+                width: 92%;
             }
 
             h1 {
-                font-size: 2.2rem;
+                font-size: 1.8rem;
             }
 
             .form-header h2 {
-                font-size: 1.7rem;
+                font-size: 1.5rem;
+            }
+
+            .form-section {
+                padding: 24px 16px;
+            }
+            
+            .brand-section h1 {
+                margin-top: 10px;
             }
         }
 
