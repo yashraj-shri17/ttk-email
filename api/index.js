@@ -42,8 +42,8 @@ app.post('/api/send-email', async (req, res) => {
       attachments: [
         {
           filename: filePath.endsWith('.png') ? 'banner.png' : 'banner.jpg',
-          content: bannerData,
-          cid: 'banner', 
+          content: bannerData.toString('base64'),
+          contentId: 'banner', 
         },
       ],
       html: `
