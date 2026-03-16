@@ -41,10 +41,9 @@ app.post('/api/send-email', async (req, res) => {
       subject: '🦚 Welcome to Your Divine Conversation',
       attachments: [
         {
-          filename: 'banner.jpg',
+          filename: filePath.endsWith('.png') ? 'banner.png' : 'banner.jpg',
           content: bannerData,
-          content_id: 'banner', 
-          inline: true,
+          cid: 'banner', 
         },
       ],
       html: `
