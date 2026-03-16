@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talk to Krishna | Divine Onboarding</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --peacock-blue: #1E3A8A;
+            --divine-gold: #D4AF37;
+            --soft-cream: #FFF7E6;
+            --text-main: #1e293b;
+            --glass: rgba(255, 255, 255, 0.8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--soft-cream);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: 
+                radial-gradient(circle at 0% 0%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 100% 100%, rgba(30, 58, 138, 0.05) 0%, transparent 40%);
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 90%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            background: white;
+            padding: 40px;
+            border-radius: 40px;
+            box-shadow: 0 40px 100px rgba(30, 58, 138, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        @media (max-width: 850px) {
+            .container {
+                grid-template-columns: 1fr;
+                padding: 30px;
+            }
+        }
+
+        .brand-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .logo-text {
+            color: var(--divine-gold);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--peacock-blue);
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #64748b;
+            margin-bottom: 32px;
+            font-style: italic;
+        }
+
+        .onboarding-image {
+            width: 100%;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .form-section {
+            background: var(--soft-cream);
+            padding: 40px;
+            border-radius: 30px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .form-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--peacock-blue);
+            margin-bottom: 8px;
+        }
+
+        .form-header p {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            color: var(--divine-gold);
+            margin-bottom: 8px;
+            padding-left: 4px;
+        }
+
+        input {
+            width: 100%;
+            padding: 16px 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(30, 58, 138, 0.1);
+            background: white;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--divine-gold);
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1);
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: var(--divine-gold);
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+            filter: brightness(1.05);
+        }
+
+        #status {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            text-align: center;
+            display: none;
+        }
+
+        .success { display: block; background: #ecfdf5; color: #059669; border: 1px solid #10b981; }
+        .error { display: block; background: #fef2f2; color: #dc2626; border: 1px solid #ef4444; }
+
+        .peacock-feather {
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            width: 200px;
+            opacity: 0.05;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="brand-section">
+            <span class="logo-text">Talk to Krishna</span>
+            <h1>Divine<br>Conversation</h1>
+            <p class="description">"You are not here by accident."<br>Begin your journey towards clarity and peace.</p>
+            <img src="/onboarding.png" class="onboarding-image" alt="Divine Meditation" onerror="this.src='https://images.unsplash.com/photo-1545389336-cf09bd699bfe?auto=format&fit=crop&w=600&q=80'">
+        </div>
+
+        <div class="form-section">
+            <div class="form-header">
+                <h2>Welcome</h2>
+                <p>Enter the seeker's details to manifest the first conversation.</p>
+            </div>
+            
+            <form id="emailForm">
+                <div class="input-group">
+                    <label>Seeker's Name</label>
+                    <input type="text" id="name" placeholder="E.g. Bodhi Seeker" required>
+                </div>
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" id="email" placeholder="seeker@example.com" required>
+                </div>
+                <button type="submit" id="submitBtn" class="btn-submit">Begin Journey</button>
+            </form>
+            <div id="status"></div>
+        </div>
+        
+        <div class="peacock-feather">🦚</div>
+    </div>
+
+    <script>
+        const form = document.getElementById('emailForm');
+        const statusDiv = document.getElementById('status');
+        const submitBtn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const name = document.getElementById('name').value;
+
+            submitBtn.disabled = true;
+            submitBtn.innerText = 'Manifesting...';
+            statusDiv.className = '';
+            statusDiv.innerText = '';
+
+            try {
+                const response = await fetch('/api/send-email', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, name })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    statusDiv.innerText = '✨ The divine invitation has been sent.';
+                    statusDiv.className = 'success';
+                } else {
+                    const errorMsg = data.message || (data.error && data.error.message) || 'Transmission failed';
+                    statusDiv.innerText = `❌ ${errorMsg}`;
+                    statusDiv.className = 'error';
+                }
+            } catch (err) {
+                statusDiv.innerText = '❌ Connection lost. Please try again.';
+                statusDiv.className = 'error';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerText = 'Begin Journey';
+            }
+        });
+    </script>
+</body>
+</html>
