@@ -11,7 +11,7 @@
             --divine-gold: #D4AF37;
             --soft-cream: #FFF7E6;
             --text-main: #1e293b;
-            --glass: rgba(255, 255, 255, 0.8);
+            --white: #ffffff;
         }
 
         * {
@@ -28,95 +28,24 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px 0;
-            overflow-x: hidden;
+            padding: 20px;
             background-image: 
                 radial-gradient(circle at 0% 0%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
                 radial-gradient(circle at 100% 100%, rgba(30, 58, 138, 0.05) 0%, transparent 40%);
         }
 
         .container {
-            max-width: 1000px;
-            width: 90%;
+            max-width: 1100px;
+            width: 100%;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            background: white;
-            padding: 40px;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            background: var(--white);
+            padding: 60px;
             border-radius: 40px;
             box-shadow: 0 40px 100px rgba(30, 58, 138, 0.08);
-            border: 1px solid rgba(212, 175, 55, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.15);
             position: relative;
-            /* Remove overflow hidden to prevent clipping of status messages/internal content */
-        }
-
-        @media (max-width: 850px) {
-            body {
-                align-items: flex-start; /* Prevent top/bottom cutting */
-                padding: 20px 0;
-            }
-
-            .container {
-                grid-template-columns: 1fr;
-                padding: 30px;
-                width: 95%;
-                gap: 24px;
-                border-radius: 24px;
-                margin-top: 20px;
-                margin-bottom: 20px;
-            }
-
-            h1 {
-                font-size: 2.2rem;
-            }
-
-            .brand-section {
-                text-align: center;
-                order: 2; /* Move brand section below form on mobile if needed, or keep order */
-            }
-
-            .logo-text {
-                margin-bottom: 12px;
-            }
-
-            .description {
-                font-size: 1rem;
-                margin-bottom: 24px;
-            }
-
-            .form-section {
-                padding: 30px 20px;
-                order: 1; /* Form first for better UX */
-            }
-
-            .onboarding-image {
-                margin-top: 24px;
-                max-width: 100%;
-                height: auto;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 24px 16px;
-                width: 92%;
-            }
-
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            .form-header h2 {
-                font-size: 1.5rem;
-            }
-
-            .form-section {
-                padding: 24px 16px;
-            }
-            
-            .brand-section h1 {
-                margin-top: 10px;
-            }
         }
 
         .brand-section {
@@ -129,77 +58,90 @@
             color: var(--divine-gold);
             text-transform: uppercase;
             letter-spacing: 5px;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
             color: var(--peacock-blue);
             line-height: 1.1;
             margin-bottom: 24px;
         }
 
         .description {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             line-height: 1.7;
             color: #64748b;
             margin-bottom: 32px;
             font-style: italic;
         }
 
-        .onboarding-image {
+        .onboarding-image-wrapper {
             width: 100%;
             border-radius: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        .onboarding-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
         }
 
         .form-section {
-            background: var(--soft-cream);
-            padding: 40px;
-            border-radius: 30px;
-            border: 1px solid rgba(212, 175, 55, 0.1);
+            background: #FDFBFA;
+            padding: 48px;
+            border-radius: 32px;
+            border: 1px solid rgba(212, 175, 55, 0.08);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .form-header h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: var(--peacock-blue);
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
 
         .form-header p {
             color: #64748b;
-            font-size: 0.9rem;
-            margin-bottom: 30px;
+            font-size: 1rem;
+            margin-bottom: 32px;
+            line-height: 1.5;
         }
 
         .input-group {
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
         label {
             display: block;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             font-weight: 700;
             color: var(--divine-gold);
-            margin-bottom: 8px;
-            padding-left: 4px;
+            margin-bottom: 10px;
+            padding-left: 2px;
         }
 
         input {
             width: 100%;
-            padding: 16px 20px;
-            border-radius: 12px;
+            padding: 18px 24px;
+            border-radius: 14px;
             border: 1px solid rgba(30, 58, 138, 0.1);
             background: white;
             font-family: inherit;
             font-size: 1rem;
             transition: all 0.3s ease;
+            color: var(--text-main);
         }
 
         input:focus {
@@ -210,12 +152,12 @@
 
         .btn-submit {
             width: 100%;
-            background: var(--divine-gold);
+            background: var(--peacock-blue);
             color: white;
             border: none;
-            padding: 18px;
-            border-radius: 12px;
-            font-size: 1rem;
+            padding: 20px;
+            border-radius: 14px;
+            font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -225,30 +167,103 @@
         }
 
         .btn-submit:hover {
+            background: #162a63;
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
-            filter: brightness(1.05);
+            box-shadow: 0 10px 20px rgba(30, 58, 138, 0.2);
         }
 
         #status {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 10px;
-            font-size: 0.85rem;
+            margin-top: 24px;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 0.95rem;
             text-align: center;
             display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .success { display: block; background: #ecfdf5; color: #059669; border: 1px solid #10b981; }
         .error { display: block; background: #fef2f2; color: #dc2626; border: 1px solid #ef4444; }
 
+        /* --- RESPONSIVE --- */
+
+        @media (max-width: 1024px) {
+            .container {
+                padding: 40px;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            body {
+                padding: 16px;
+                align-items: flex-start;
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+                padding: 32px;
+                border-radius: 24px;
+                gap: 48px;
+            }
+
+            .brand-section {
+                text-align: center;
+                align-items: center;
+            }
+
+            .description {
+                max-width: 500px;
+            }
+
+            .form-section {
+                padding: 32px;
+                background: var(--white);
+                border: 1px solid rgba(30, 58, 138, 0.05);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 24px 20px;
+                gap: 32px;
+            }
+
+            .form-section {
+                padding: 24px 20px;
+            }
+
+            h1 {
+                margin-bottom: 16px;
+            }
+
+            .onboarding-image-wrapper {
+                border-radius: 20px;
+            }
+
+            .logo-text {
+                letter-spacing: 3px;
+                font-size: 0.7rem;
+            }
+
+            .form-header h2 {
+                font-size: 1.8rem;
+            }
+        }
+
         .peacock-feather {
             position: absolute;
-            bottom: -50px;
-            right: -50px;
-            width: 200px;
+            bottom: -40px;
+            right: -20px;
+            font-size: 120px;
             opacity: 0.05;
             pointer-events: none;
+            z-index: 1;
         }
     </style>
 </head>
@@ -258,18 +273,20 @@
             <span class="logo-text">Talk to Krishna</span>
             <h1>Divine<br>Conversation</h1>
             <p class="description">"You are not here by accident."<br>Begin your journey towards clarity and peace.</p>
-            <img src="/onboarding.png" class="onboarding-image" alt="Divine Meditation" onerror="this.src='https://images.unsplash.com/photo-1545389336-cf09bd699bfe?auto=format&fit=crop&w=600&q=80'">
+            <div class="onboarding-image-wrapper">
+                <img src="/onboarding.png" class="onboarding-image" alt="Divine Meditation" onerror="this.src='https://images.unsplash.com/photo-1545389336-cf09bd699bfe?auto=format&fit=crop&w=600&q=80'">
+            </div>
         </div>
 
         <div class="form-section">
             <div class="form-header">
                 <h2>Welcome</h2>
-                <p>Enter the seeker's details to manifest the first conversation.</p>
+                <p>Enter your details to manifest your first conversation with Krishna.</p>
             </div>
             
             <form id="emailForm">
                 <div class="input-group">
-                    <label>Seeker's Name</label>
+                    <label>Your Name</label>
                     <input type="text" id="name" placeholder="E.g. Bodhi Seeker" required>
                 </div>
                 <div class="input-group">
@@ -298,6 +315,7 @@
             submitBtn.innerText = 'Manifesting...';
             statusDiv.className = '';
             statusDiv.innerText = '';
+            statusDiv.style.display = 'none';
 
             try {
                 const response = await fetch('/api/send-email', {
@@ -320,6 +338,7 @@
                 statusDiv.innerText = '❌ Connection lost. Please try again.';
                 statusDiv.className = 'error';
             } finally {
+                statusDiv.style.display = 'block';
                 submitBtn.disabled = false;
                 submitBtn.innerText = 'Begin Journey';
             }
